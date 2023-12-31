@@ -19,7 +19,7 @@ typedef enum state
 {
     E_OK,
     E_NOK,
-    Start=0,
+    Start,
     Parsing,
     Inserting,
     Sorting,
@@ -133,6 +133,7 @@ void StateMachine(FILE* ptr_to_file,card * cards)
                         {
                             if(Line[i] == '_')
                             ch_col = Line[i+ONE];
+                            break;
                         }
                         /*Convert the Decimal in the string to number.*/
                         ch_card_num = creat_num(Line);
@@ -263,7 +264,6 @@ char creat_num (char* c)
     char num = 0;
     if(c != NULL)
     {
-        char num=0;
         num = atoi(c);
         return num;
     }
